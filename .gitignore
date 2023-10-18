@@ -1,5 +1,2 @@
-*.cph
-*.bin
-*.vscode
-*.json
-*.prob
+*
+!.cpp

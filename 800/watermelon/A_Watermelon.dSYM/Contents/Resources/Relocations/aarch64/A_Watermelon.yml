@@ -1,0 +1,15 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/ryanvirtue/Desktop/CodingProbs/800/watermelon/A_Watermelon'
+relocations:
+  - { offsetInCU: 0xDA, offset: 0xDA, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003D88, symSize: 0xE8 }
+  - { offsetInCU: 0x3237, offset: 0x3237, size: 0x8, addend: 0x0, symName: __ZStL8__ioinit, symObjAddr: 0xE530, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offsetInCU: 0x353D, offset: 0x353D, size: 0x8, addend: 0x0, symName: __ZNSt8__detail30__integer_to_chars_is_unsignedIjEE, symObjAddr: 0x173, symBinAddr: 0x100003F53, symSize: 0x0 }
+  - { offsetInCU: 0x3557, offset: 0x3557, size: 0x8, addend: 0x0, symName: __ZNSt8__detail30__integer_to_chars_is_unsignedImEE, symObjAddr: 0x174, symBinAddr: 0x100003F54, symSize: 0x0 }
+  - { offsetInCU: 0x3571, offset: 0x3571, size: 0x8, addend: 0x0, symName: __ZNSt8__detail30__integer_to_chars_is_unsignedIyEE, symObjAddr: 0x175, symBinAddr: 0x100003F55, symSize: 0x0 }
+  - { offsetInCU: 0x359F, offset: 0x359F, size: 0x8, addend: 0x0, symName: __GLOBAL__sub_I_A_Watermelon.cpp, symObjAddr: 0x124, symBinAddr: 0x100003EAC, symSize: 0x14 }
+  - { offsetInCU: 0x35C3, offset: 0x35C3, size: 0x8, addend: 0x0, symName: __Z41__static_initialization_and_destruction_0v, symObjAddr: 0xE8, symBinAddr: 0x100003E70, symSize: 0x3C }
+  - { offsetInCU: 0x35CB, offset: 0x35CB, size: 0x8, addend: 0x0, symName: __GLOBAL__sub_I_A_Watermelon.cpp, symObjAddr: 0x124, symBinAddr: 0x100003EAC, symSize: 0x14 }
+  - { offsetInCU: 0x35BF, offset: 0x35BF, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003D88, symSize: 0xE8 }
+  - { offsetInCU: 0x35C7, offset: 0x35C7, size: 0x8, addend: 0x0, symName: __Z41__static_initialization_and_destruction_0v, symObjAddr: 0xE8, symBinAddr: 0x100003E70, symSize: 0x3C }
+...
