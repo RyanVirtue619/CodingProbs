@@ -24,6 +24,7 @@ int32_t main()
     cin.tie(0); 
     cout.tie(0);
     //Start coding
+    //https://codeforces.com/problemset/problem/71/A
     int n;
     string s;
     cin >> n;
