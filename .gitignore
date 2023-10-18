@@ -1,2 +1,6 @@
 *
 !*.cpp
+
+*/
+!.gitignore
+!README.md
