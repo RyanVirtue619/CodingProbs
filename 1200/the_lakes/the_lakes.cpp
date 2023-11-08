@@ -14,24 +14,39 @@ typedef vector<ll> vll;
 typedef vector<vll> vvll;
 typedef vector<string> vs;
 
-ll grid[1001][1001];
-bool seen[1001][1001];
+//init n, m, and grid globally
 ll n, m;
+// 1000 is max size
+int grid[1000][1000];
+bool seen[1000][1000];
 
-int dfs(ll i, ll j) {
-    seen[i][j] == true;
-    ll sum = grid[i][j];
-    if(i-1 != 0 && !seen[i-1][j] && grid[i-1][j] != 0) {
-        sum += dfs(i-1, j);
+int dfs(int r, int c) {
+    seen[r][c] = true;
+    //set sum equal to the item, add the results of other dfs to get total
+    int sum = grid[r][c];
+    //check below square
+    if(r > 0) {
+        if(grid[r-1][c] > 0 && !seen[r-1][c]) {
+            sum += dfs(r-1, c);
+        }
     }
-    if(j-1 != 0 && !seen[i][j-1] && grid[i][j-1] != 0) {
-        sum += dfs(i, j-1);
+    //check left of square
+    if(c > 0) {
+        if(grid[r][c-1] > 0 && !seen[r][c-1]) {
+            sum += dfs(r, c-1);
+        }
     }
-    if(i+1 != n-1 && !seen[i+1][j] && grid[i+1][j] != 0) {
-        sum += dfs(i+1, j);
+    //check above square
+    if(r < n-1) {
+        if(grid[r+1][c] > 0 && !seen[r+1][c]) {
+            sum += dfs(r+1, c);
+        }
     }
-    if(j+1 != m-1 && !seen[i][j+1] && grid[i][j+1] != 0) {
-        sum += dfs(i, j+1);
+    //check below square
+    if(c < m-1) {
+        if(grid[r][c+1] > 0 && !seen[r][c+1]) {
+            sum += dfs(r, c+1);
+        }
     }
     return sum;
 }
@@ -45,21 +60,29 @@ int32_t main()
     cin >> t;
     while(t--) {
         cin >> n >> m;
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++) {
-                cin >> grid[i][j];
+        //fill with false values
+        for(int i = 0; i < n-1; i++) {
+            for(int j = 0; j < m-1; j++) {
+                grid[i][j] = false;
                 seen[i][j] = false;
             }
         }
-        ll s = 0;
+        // fill with inputs
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
-                if(!seen[i][j] && grid[i][j] != 0) {
-                    ll temp = dfs(i, j);
-                    s = max(temp, s);
-                }
+                ll a;
+                cin >> a;
+                grid[i][j] = a;
+                seen[i][j] = false;
             }
         }
-        cout << s << endl;
+        //run dfs on each square and save the max group
+        int ans = 0;
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < m; j++) {
+                if(!seen[i][j] && grid[i][j] != 0) ans = max(dfs(i, j), ans);
+            }
+        }
+        cout << ans << endl;
     }
 }
