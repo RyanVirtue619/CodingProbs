@@ -25,15 +25,29 @@ int32_t main()
         ll n;
         cin >> n;
         ll vec[n];
+        ll precomputed[n];
         string s;
         for(int i = 0; i < n; i++) {
             ll b;
             cin >> b;
             vec[i] = b;
         }
+        precomputed[0] = vec[0];
+        for(int i = 0; i < n; i++) {
+            precomputed[n] = vec[i] ^ precomputed[n-1];
+        }
         cin >> s;
         ll qs;
         cin >> qs;
+        ll xor0 = 0;
+        ll xor1 = 0;
+        for(int i = 0; i < n; i++) {
+            if(s[i] == '0') {
+                xor0 ^= vec[i];
+            } else {
+                xor1 ^= vec[i];
+            }
+        }
         for(int i = 0; i < qs; i++) {
             int aorb;
             cin >> aorb;
@@ -41,23 +55,16 @@ int32_t main()
                 ll l;
                 ll r;
                 cin >> l >> r;
-                for(int j = l-1; j < r; j++) {
-                    if(s[j] == '0') {
-                        s[j] = '1';
-                    } else {
-                        s[j] = '0';
-                    }
-                }
+                xor0 ^= precomputed[r] - precomputed[l-1];
+                xor1 ^= precomputed[r] - precomputed[l-1];
             } else {
                 char lookfor;
                 cin >> lookfor;
-                ll xors = 0;
-                for(int j = 0; j < n; j++) {
-                    if(s[j] == lookfor) {
-                        xors = xors ^ vec[j];
-                    }
+                if(lookfor == 0) {
+                    cout << xor0 << " ";
+                } else {
+                    cout << xor1 << " ";
                 }
-                cout << xors << " ";
             } 
         }
         cout << endl;
